@@ -1,8 +1,10 @@
 
 #include <windows.h> // for FLOAT definition
-#include <xnamath.h>
+#include <directxmath.h>
 #include <iostream>
+
 using namespace std;
+using namespace DirectX;
 
 // Overload the  "<<" operators so that we can use cout to 
 // output XMVECTOR objects.
@@ -15,14 +17,14 @@ ostream& operator<<(ostream& os, FXMVECTOR v)
 	return os;
 }
  
-int main()
+int main(void)
 {
 	cout.setf(ios_base::boolalpha);
 
 	// Check support for SSE2 (Pentium4, AMD K8, and above).
 	if( !XMVerifyCPUSupport() )
 	{
-		cout << "xna math not supported" << endl;
+		cout << "DIRECTX math not supported" << endl;
 		return 0;
 	}
 	
@@ -47,7 +49,7 @@ int main()
 
 	cout << "XMVectorMultiply(u, v)         = " << XMVectorMultiply(u, v) << endl;
 	cout << "XMVectorSaturate(q)            = " << XMVectorSaturate(q) << endl;
-	cout << "XMVectorMin(p, v               = " << XMVectorMin(p, v) << endl;
+	cout << "XMVectorMin(p, v)              = " << XMVectorMin(p, v) << endl;
 	cout << "XMVectorMax(p, v)              = " << XMVectorMax(p, v) << endl;
 
 	return 0;
